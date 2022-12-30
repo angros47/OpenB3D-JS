@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple template</title>
+  </head>
+  <body>
+    <canvas id="glCanvas" width="800" height="600"></canvas>
+    <script src="OpenB3D.js"></script>
+    <script src="OpenB3DJS.js"></script>
+    <script>
+      Module.onRuntimeInitialized = _ => {
+	const canvas = document.querySelector("#glCanvas");
+	GLctx = canvas.getContext("webgl");
+
+	Graphics3D(640,480,0,0,0);
+	cam=CreateCamera(0);
+	cube=CreateCube(0);
+	light=CreateLight(1,0);
+	TurnEntity(light,45,45,0);
+	MoveEntity (cube,0,0,5);
+
+
+	function UPDATE(){
+		TurnEntity(cube,.1,1,0);
+		UpdateWorld();
+		RenderWorld();
+		setTimeout (UPDATE,33);
+	}
+	UPDATE();
+
+	
+      };
+    </script>
+  </body>
+</html>
