@@ -1,0 +1,2 @@
+emcc OpenB3D.o -o OpenB3D.html -s EXPORT_ALL=1 -s ALLOW_MEMORY_GROWTH=1 -s LINKABLE=1 -s EXPORTED_RUNTIME_METHODS=ccall,cwrap
+
