@@ -1,5 +1,4 @@
 	var GLctx;
-	//const BufferToTex = Module.cwrap('BufferToTex', null, ['number', 'string' ,'number']);
 	const BackBufferToTex = Module.cwrap('BackBufferToTex', null, ['number', 'number']);
 	const CameraToTex = Module.cwrap('CameraToTex', null, ['number', 'number' ,'number']);
 	//const TexToBuffer = Module.cwrap('TexToBuffer', null, ['number', 'string' ,'number']);
@@ -493,3 +492,10 @@
 		httpRequest.responseType="arraybuffer";
 		httpRequest.send(null);
 	}
+
+	function BufferToTex (tex, buffer){
+		GLctx.bindTexture(GLctx.TEXTURE_2D, GL.textures[getValue(tex,"i32")]);
+		GLctx.texImage2D(GLctx.TEXTURE_2D, 0, GLctx.RGBA, GLctx.RGBA, GLctx.UNSIGNED_BYTE, buffer);
+		GLctx.generateMipmap(GLctx.TEXTURE_2D);
+	}
+
