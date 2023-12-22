@@ -68,7 +68,7 @@
 		return new_listener;
 	}
 
-	function EmitSound(sound , entity, loop=0){
+	function EmitSound(sound , entity, loop=false){
 		let Source3d = {
 			ent: 0,
 			panner: 0,
@@ -80,6 +80,7 @@
 			}
 		let new_source=Object.create(Source3d);
 		let new_sound=sound.cloneNode();
+		new_sound.loop=loop;
 
 		new_source.ent=entity;
 		new_source.panner = new PannerNode(audioCtx, {
