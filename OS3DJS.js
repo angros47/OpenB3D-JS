@@ -107,7 +107,7 @@
 		new_sound.play();
 
 		Source3D_Emits.push(new_source);
-		//return new_source;
+		return new_sound;
 
 	}
 
