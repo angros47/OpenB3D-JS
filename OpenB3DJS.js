@@ -45,6 +45,7 @@
 	const CollisionX = Module.cwrap('CollisionX', 'number', ['number', 'number']);
 	const CollisionY = Module.cwrap('CollisionY', 'number', ['number', 'number']);
 	const CollisionZ = Module.cwrap('CollisionZ', 'number', ['number', 'number']);
+	const CountBones = Module.cwrap('CountBones', 'number', ['number']);
 	const CountChildren = Module.cwrap('CountChildren', 'number', ['number']);
 	const CountCollisions = Module.cwrap('CountCollisions', 'number', ['number']);
 	const CopyEntity = Module.cwrap('CopyEntity', 'number', ['number', 'number']);
@@ -115,11 +116,13 @@
 	const FreeBrush = Module.cwrap('FreeBrush', null, ['number']);
 	const FreeConstraint = Module.cwrap('FreeConstraint', null, ['number']);
 	const FreeEntity = Module.cwrap('FreeEntity', null, ['number']);
+	const FreePostFX = Module.cwrap('FreePostFX', null, ['number']);
 	const FreeRigidBody = Module.cwrap('FreeRigidBody', null, ['number']);
 	const FreeShader = Module.cwrap('FreeShader', null, ['number']);
 	const FreeShadow = Module.cwrap('FreeShadow', null, ['number']);
 	const FreeTexture = Module.cwrap('FreeTexture', null, ['number']);
 	const GeosphereHeight = Module.cwrap('GeosphereHeight', null, ['number', 'number']);
+	const GetBone = Module.cwrap('GetBone', 'number', ['number', 'number']);
 	const GetBrushTexture = Module.cwrap('GetBrushTexture', 'number', ['number', 'number']);
 	const GetChild = Module.cwrap('GetChild', 'number', ['number', 'number']);
 	const GetEntityBrush = Module.cwrap('GetEntityBrush', 'number', ['number']);
@@ -150,6 +153,7 @@
 	const MeshWidth = Module.cwrap('MeshWidth', 'number', ['number']);
 	const ModifyGeosphere = Module.cwrap('ModifyGeosphere', null, ['number', 'number', 'number', 'number']);
 	const ModifyTerrain = Module.cwrap('ModifyTerrain', null, ['number', 'number', 'number', 'number']);
+	const MoveBone = Module.cwrap('MoveBone', 'number', ['number', 'number', 'number', 'number', 'number']);
 	const MoveEntity = Module.cwrap('MoveEntity', null, ['number', 'number', 'number', 'number']);
 	const NameEntity = Module.cwrap('NameEntity', null, ['number', 'string']);
 	const NameTexture = Module.cwrap('NameTexture', null, ['number', 'string']);
@@ -170,6 +174,7 @@
 	const PickedY = Module.cwrap('PickedY', 'number', []);
 	const PickedZ = Module.cwrap('PickedZ', 'number', []);
 	const PointEntity = Module.cwrap('PointEntity', null, ['number', 'number', 'number']);
+	const PositionBone = Module.cwrap('PositionBone', null, ['number', 'number', 'number', 'number']);
 	const PositionEntity = Module.cwrap('PositionEntity', null, ['number', 'number', 'number', 'number', 'number']);
 	const PositionMesh = Module.cwrap('PositionMesh', null, ['number', 'number', 'number', 'number']);
 	const PositionTexture = Module.cwrap('PositionTexture', null, ['number', 'number', 'number']);
@@ -180,6 +185,7 @@
 	const RepeatMesh = Module.cwrap('RepeatMesh', 'number', ['number', 'number']);
 	const ResetEntity = Module.cwrap('ResetEntity', null, ['number']);
 	const ResetShadow = Module.cwrap('ResetShadow', null, ['number']);
+	const RotateBone = Module.cwrap('RotateBone', null, ['number', 'number', 'number', 'number']);
 	const RotateEntity = Module.cwrap('RotateEntity', null, ['number', 'number', 'number', 'number', 'number']);
 	const RotateMesh = Module.cwrap('RotateMesh', null, ['number', 'number', 'number', 'number']);
 	const RotateSprite = Module.cwrap('RotateSprite', null, ['number', 'number']);
@@ -272,10 +278,12 @@
 	const AmbientShader = Module.cwrap('AmbientShader', null, ['number']);
 	const GetShaderProgram = Module.cwrap('GetShaderProgram', 'number', ['number']);
 	const CreateOcTree = Module.cwrap('CreateOcTree', 'number', ['number', 'number', 'number', 'number']);
-	const OctreeBlock = Module.cwrap('OctreeBlock', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']);
+	const OctreeBlock = Module.cwrap('OctreeBlock', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']);
 	const OctreeMesh = Module.cwrap('OctreeMesh', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']);
 	const CreateFluid = Module.cwrap('CreateFluid', 'number', []);
 	const CreateParticleEmitter = Module.cwrap('CreateParticleEmitter', 'number', ['number', 'number']);
+	const ActStop = Module.cwrap('ActStop', 'number', ['number']);
+	const ActWait = Module.cwrap('ActWait', 'number', ['number']);
 	const ActMoveBy = Module.cwrap('ActMoveBy', 'number', ['number', 'number', 'number', 'number', 'number']);
 	const ActTurnBy = Module.cwrap('ActTurnBy', 'number', ['number', 'number', 'number', 'number', 'number']);
 	const ActVector = Module.cwrap('ActVector', 'number', ['number', 'number', 'number', 'number']);
@@ -288,7 +296,11 @@
 	const ActTrackByDistance = Module.cwrap('ActTrackByDistance', 'number', ['number', 'number', 'number', 'number']);
 	const ActNewtonian = Module.cwrap('ActNewtonian', 'number', ['number', 'number']);
 	const AppendAction = Module.cwrap('AppendAction', null, ['number', 'number']);
-	const FreeAction = Module.cwrap('FreeAction', null, ['number']);
+	const FreeAction = Module.cwrap('FreeAction', null, ['number', 'number']);
+	const ActIterator = Module.cwrap('ActIterator', 'number', []);
+	const TriggerCloseTo = Module.cwrap('TriggerCloseTo', 'number', ['number', 'number', 'number', 'number', 'number']);
+	const TriggerDistance = Module.cwrap('TriggerDistance', 'number', ['number', 'number', 'number']);
+	const TriggerCollision = Module.cwrap('TriggerCollision', 'number', ['number', 'number']);
 	const CreatePostFX = Module.cwrap('CreatePostFX', 'number', ['number', 'number']);
 	const AddRenderTarget = Module.cwrap('AddRenderTarget', null, ['number', 'number', 'number', 'number', 'number', 'number']);
 	const PostFXShader = Module.cwrap('PostFXShader', null, ['number', 'number', 'number']);
