@@ -6160,6 +6160,7 @@ var __ZN6Entity10AnimLengthEv = Module['__ZN6Entity10AnimLengthEv'] = createExpo
 var __ZN6Entity8AnimTimeEv = Module['__ZN6Entity8AnimTimeEv'] = createExportWrapper('_ZN6Entity8AnimTimeEv', 1);
 var __ZN6Entity14ExtractAnimSeqEiii = Module['__ZN6Entity14ExtractAnimSeqEiii'] = createExportWrapper('_ZN6Entity14ExtractAnimSeqEiii', 4);
 var __ZN6Entity11LoadAnimSeqENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE = Module['__ZN6Entity11LoadAnimSeqENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE'] = createExportWrapper('_ZN6Entity11LoadAnimSeqENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE', 2);
+var __ZN4Mesh12LoadAnimMeshENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEP6Entity = Module['__ZN4Mesh12LoadAnimMeshENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEP6Entity'] = createExportWrapper('_ZN4Mesh12LoadAnimMeshENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEP6Entity', 2);
 var __ZNSt3__26vectorIiNS_9allocatorIiEEE18__insert_with_sizeB8ne190106INS_11__wrap_iterIPiEES7_EES7_NS5_IPKiEET_T0_l = Module['__ZNSt3__26vectorIiNS_9allocatorIiEEE18__insert_with_sizeB8ne190106INS_11__wrap_iterIPiEES7_EES7_NS5_IPKiEET_T0_l'] = createExportWrapper('_ZNSt3__26vectorIiNS_9allocatorIiEEE18__insert_with_sizeB8ne190106INS_11__wrap_iterIPiEES7_EES7_NS5_IPKiEET_T0_l', 5);
 var __ZNSt3__26vectorIfNS_9allocatorIfEEE18__insert_with_sizeB8ne190106INS_11__wrap_iterIPfEES7_EES7_NS5_IPKfEET_T0_l = Module['__ZNSt3__26vectorIfNS_9allocatorIfEEE18__insert_with_sizeB8ne190106INS_11__wrap_iterIPfEES7_EES7_NS5_IPKfEET_T0_l'] = createExportWrapper('_ZNSt3__26vectorIfNS_9allocatorIfEEE18__insert_with_sizeB8ne190106INS_11__wrap_iterIPfEES7_EES7_NS5_IPKfEET_T0_l', 5);
 var __ZN6Entity10SetAnimKeyEfiii = Module['__ZN6Entity10SetAnimKeyEfiii'] = createExportWrapper('_ZN6Entity10SetAnimKeyEfiii', 5);
@@ -6415,7 +6416,6 @@ var __ZN5Light10LightRangeEf = Module['__ZN5Light10LightRangeEf'] = createExport
 var _LinePick = Module['_LinePick'] = createExportWrapper('LinePick', 7);
 var __ZN4Pick8LinePickEfffffff = Module['__ZN4Pick8LinePickEfffffff'] = createExportWrapper('_ZN4Pick8LinePickEfffffff', 7);
 var _LoadAnimMesh = Module['_LoadAnimMesh'] = createExportWrapper('LoadAnimMesh', 2);
-var __ZN4Mesh12LoadAnimMeshENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEP6Entity = Module['__ZN4Mesh12LoadAnimMeshENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEP6Entity'] = createExportWrapper('_ZN4Mesh12LoadAnimMeshENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEP6Entity', 2);
 var _LoadAnimSeq = Module['_LoadAnimSeq'] = createExportWrapper('LoadAnimSeq', 2);
 var _LoadAnimTexture = Module['_LoadAnimTexture'] = createExportWrapper('LoadAnimTexture', 6);
 var __ZN7Texture15LoadAnimTextureENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEiiiii = Module['__ZN7Texture15LoadAnimTextureENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEiiiii'] = createExportWrapper('_ZN7Texture15LoadAnimTextureENSt3__212basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEiiiii', 6);
