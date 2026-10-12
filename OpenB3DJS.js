@@ -309,6 +309,15 @@
 	const PostFXTexture = Module.cwrap('PostFXTexture', null, ['number', 'number', 'number', 'number', 'number']);
 	const CameraProjMatrix = Module.cwrap('CameraProjMatrix', 'number', ['number']);
 	const EntityMatrix = Module.cwrap('EntityMatrix', 'number', ['number']);
+	const LightMesh = Module.cwrap('LightMesh', null, ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']);
+	const CreateProbeVolume = Module.cwrap('CreateProbeVolume', 'number', ['number', 'number', 'number', 'number']);
+	const ClearProbes = Module.cwrap('ClearProbes', null, ['number']);
+	const SetLightProbe = Module.cwrap('SetLightProbe', null, ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']);
+	const UpdateLightProbe = Module.cwrap('UpdateLightProbe', null, ['number', 'number', 'number', 'number']);
+	const SetValidProbe = Module.cwrap('SetValidProbe', null, ['number', 'number', 'number', 'number']);
+	const SetLight = Module.cwrap('SetLight', null, ['number', 'number', 'number', 'number', 'number', 'number', 'number', 'number', 'number']);
+	const ApplyDiffusion = Module.cwrap('ApplyDiffusion', null, ['number', 'number']);
+	const UpdateMeshColor = Module.cwrap('UpdateMeshColor', null, ['number', 'number', 'number']);
 
 	function AsyncLoadAnimMesh(filename, parent, callback){
 		var httpRequest = new XMLHttpRequest();

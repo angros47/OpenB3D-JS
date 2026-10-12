@@ -1,0 +1,237 @@
+v1.5
+Added
+-LightMesh
+-global illumination based on light probes
+-2d helper functions
+
+Fixed
+-for animation updates, use glBufferSubData instead of glBufferData
+-Fixed a bug in .obj loader
+-spheremapping now works in GLES mode too
+-potential memory leak (some entities weren't properly listed for deletion in ClearWorld)
+-made ModifyGeosphere faster and more accurate
+
+
+v1.42
+Added
+-Support for .gltf and .glb format
+
+Fixed
+-some glitches with EntityParent
+-MoveBone caused unwanted deformations when used for more than two joints
+-particle size in Web version
+
+Removed
+-Support for .x files: it was only partial, since it supported only an old version, only in text form, and with no animations. 
+
+v1.4
+Added
+-support for .obj format
+-Inverse kinematics with MoveBone
+-Commands PositionBone and RotateBone
+-Commands CountBones and GetBone
+-Command FreePostFX
+-Commands ActStop, ActWait, ActExecute
+-Command ActIterator
+-Commands TriggerCloseTo, TriggerDistance, TriggerCollision
+
+Changed
+-UseSurface cannot specify anymore a surface from another mesh
+-OctreeBlock now has an extra parameter to decide whether that block will be counted in collisions or not
+-FreeAction now has an extra parameter to specify if appended actions, too, must be stopped
+-EntityType now doesn't accept negative values anymore: to set an entity for dynamic collision, the flag 2 must be used
+
+Fixed
+-Shaders that required UseSurface didn't work with animated meshes
+-TranslateEntity ignored the global parameter
+-in .b3d files bone weights weren't normalized, and that caused issues with models exported by Blender, that appeared deformed
+-it is now possible to manually animate a mesh by rotating or moving its bones even during regular animations, for bones that don't have keyframes in that specific sequence
+-in WebGL mode now it's possible to have more than one shadow per entity if there is more than one light
+-in WebGL mode voxel sprites work even if the texture strip has a width that is not a power of two
+-EntityCollided now reports both active and passive collisions
+-ClearWorld didn't erase the shadows, now it does
+
+V1.3
+Added
+-MeshCSG can now create decal mesh
+
+Fixed
+-fog with multiple cameras
+
+V1.262
+Fixed
+-CreateCone added one triangle in the base that was unnecessary and disturbed the collision checking
+-Updated the image loader
+-EntityType didn't work correctly when used a second time on the same entity
+
+V1.261
+Fixed
+-CopyEntity for voxel sprites
+-some issues with lights in Web mode
+-in Web mode entities that used the default shader weren't rendered after entities using a custom shader. 
+
+V1.26
+Added
+-FreeShader
+
+Fixed
+-memory leak in CreateSprite
+-ClearWorld now works for brushes, too
+-Graphics3D reinitializes some parameters
+-particle emitter didn't have correct orientation when added to a parent entity
+-EntityClass, EntityName and TextureName returned wrong result. Fixed.
+
+V1.251
+Fixed
+-several minor bugs that made difficult to compile with more modern compilers
+-Several fix for Web mode
+
+V1.25
+Added:
+-Geometry shaders
+-possibility to use custom functions in materials
+
+Fixed
+-bugs in the post processor
+-anti alias
+-normals in isosurfaces
+-voxels can be used also in the Emscripten version
+
+V1.20
+Added:
+-Custom shaders now can also use the entity textures
+-Experimental post processor
+
+Fixed:
+-Bug in isosurfaces when using custom shaders
+-Bug in RotateEntity and PointEntity, that caused issue with the scale of an entity when it was in a nested structure
+-Bug in calculating light in geospheres
+
+V1.15
+Added Emscripten as a target (compile with: make web)
+
+V1.12
+Fixed:
+-Bug in planet rendering that caused irregularities in textures
+-Bug in terrains that set wrong height in corners
+-Bug that made particles crash
+-many memory leaks
+-wrong declaration in basic header for PositionTexture
+
+Deprecated:
+The file 2d.bi isn't included anymore
+
+V1.1
+Added:
+-3d actions: ActMoveBy, ActTurnBy, ActMoveTo, ActTurnTo, and many more
+-Physics features: CreateConstraints and CreateRigidBody; with the last one, it's possible to define position, scale and rotation of an entity by linking it to four other entities (usually pivots): if that entities are controlled by constraints, the main entity can be controlled in a physically realistic way
+-Particle system: emitters can be made with CreateEmitter (even an "emitter of emitters" is possible)
+-if a light is created with a negative light type, it won't cast shadows
+-DepthBufferToTex: with no args it uses the back buffer, otherwise it can render the depth buffer from a camera (like in CameraToTex)
+
+Fixed:
+-Collisions crashed when an entity made with CopyEntity was erased, it doesn't crash any more
+-Dynamic collisions didn't work for scaled entities, or child entities; now they work
+-HideEntity now works on lights
+-Finally, it's possible to load textures from different directories; path info in texture name is now used: if the file cannot be found, a warning is emitted and the file is searched in current directory (or in the directory where the 3d model using that texture is located). 
+-CreateGeosphere now build a model with correct texture mapping
+-When updating a child entity, only its matrix is recalculated, not the entire tree (should be slightly faster)
+-PaintEntity and TextureFilter now should work
+-fixed a bug in static shadows
+
+
+V1.0
+Added:
+-LoadAnimSeq 
+-SetAnimKey: it's now possible to create custom animation (both vertex morphing and skeletal-based animations are supported)
+-CreateBone: create a new bone
+-SkinMesh: used to attach a bone to a mesh: surface and mode must be provided as integers, not as handles (the first bone is 1, not the number returned by CreateBone)
+-Isosurfaces (created by CreateFluid) can be built using arrays (FluidArray), or by using custom functions
+-Particle system: with SpriteRenderMode ..,3 sprites are rendered as particles: they are much faster than normal sprites, and can have a trail: trail length can be set with ParticleTrail, and it can move toward a direction with ParticleVector (useful for fire/smoke effects); also, ParticleColor can be used to set the fading color.
+
+Fixed
+-Transitional animations now works with MD2 animations, and with manual mode skeletal animations.
+-Vertex shaders can be used on terrains and geospheres: compiling for GLES2 should be easier
+-bug in AddMesh: textures sometimes were changed.
+-Matrices are now allocated in the stack, and no more in the heap (faster)
+
+V0.9
+Added:
+-Metaballs (CreateFluid and CreateBlob)
+-MD2 support (transitional animations are not yet supported)
+-Manual animation (mode 4): it's now possible the bones of an animated mesh, and the mesh will deform
+-Pre-rendered mesh animations: when a mesh is copied using RepeatMesh, all frames of the animation are rendered and stored in video memory, to be used for every instance of the mesh: animation is less smooth, but if many animated meshes are rendered at the same time, less system resources are used
+
+
+-Fixed
+-Some bugs in Octrees
+-SpriteRenderMode now works
+-Geosphere LOD works better
+-Upgraded image loader
+-Removed all the glBegin..glEnd pairs from the code: now, compiling for GLES should be easier
+
+
+V0.8
+Added:
+- ClearCollisions
+- Geospheres: now it's possible to make planets (spherical terrains)
+Fixed:
+- Collisions of child entities now works
+- if an entity has no parent, GeTParent returns 0: also, EntityParent ent,0 now works
+- AnimLength
+
+V0.7
+Added:
+- Octrees
+- Dynamic collisions (a sphere-to-sphere collision is detected even if both objects are moving)
+- VBO automatically disabled for older OpenGL version.
+
+Fixed:
+- Some memory leaks when a mesh is loaded or copied
+- RepeatMesh: repeated meshes can be used in collisions.
+- X and 3ds loader: surfaces were loaded twice.
+
+V0.62
+Added:
+-Can load some DirectX (.x) files
+
+Fixed:
+-Hiding an entity will hide its shadow, too
+
+V0.6
+
+Added:
+- CameraToTex: cubemapping will be easier.
+- Constructive Solid Geometry: with command MeshCSG it's possible to combine, subtract or intersect two meshes
+- Stencils: things like mirrors or portals are possible
+- UVW mapping: with the command UpdateTexCoords, the second texture map of a surface will be replaced with a UVW texture map, to apply materials (3D textures)
+- Materials: they are 3d textures, that can be stored in multiframe pictures (just like animated textures: they can be load with a similar syntax). Materials cannot be used on a surface directly, but they can be used in a shader template that can be applied to a surface. UVW data will be used to map it.
+- Voxel sprites: they are solid, and can be created from a material (as a 2D sprite can be created from a texture)
+
+Fixed:
+- a bug in TFormPoint: it didn't work correctly when a source entity and a destination entity were specified at the same time
+- a cubemap bug.
+- Some memory leaks (Thank D.J.Peters)
+- a bug in shadows: distance from the light was not computed correctly.
+
+V0.5
+
+Added:
+- Shader support
+- Command RepeatMesh: creates a new mesh using surfaces of another one: any change to surface of one mesh will affect its clones, too.
+- LightRange now affects shadows, too.
+- MeshCullRadius now works
+- LoadAnimTextures now can extract frames from more than one strip.
+
+Fixed:
+- fixed a bug in FreeEntity that caused memory leaks
+- Shadow anomalies: should be fixed
+- Mesh attached to animated bones were updated only when the animated mesh was turned/moved. Fixed.
+- CreateCylinder (solid mode)
+- EntityParent: when parenting to 0, scale was not restored
+- TranslateEntity: it worked in the wrong way. Fixed.
+- MeshesIntersect: fixed
+- Cleaned the source (thanks to D.J. Peters)
+- CopyEntity terrain: if entitytype was set, it crashed. Fixed.
+- CopyEntity terrain: now brush info are copied, too.
+
